@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Carros</title>
+    <script>
+        function teste(){
+            url="http://127.0.0.1:5000/carros";
+            fetch(url)
+                .then((response) => response.json())
+                .then((data)=>{
+                    console.log(data)
+                });
+        }
+    </script>
+</head>
+<body onload="teste()">
+    
+</body>
+</html>
