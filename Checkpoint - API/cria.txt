@@ -1,0 +1,18 @@
+
+CREATE SEQUENCE livro_seq START WITH 1 INCREMENT BY 1;
+
+CREATE TABLE Livros (
+    id NUMBER PRIMARY KEY,
+    titulo VARCHAR2(255) NOT NULL,
+    autor VARCHAR2(255),
+    preco NUMBER(10, 2), -- Campo do tipo float
+    data_publicacao DATE NOT NULL
+);
+
+CREATE OR REPLACE TRIGGER livro_id_trigger
+BEFORE INSERT ON Livros
+FOR EACH ROW
+BEGIN
+  SELECT livro_seq.NEXTVAL INTO :NEW.id FROM dual;
+END;
+/
